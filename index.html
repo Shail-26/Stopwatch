@@ -8,71 +8,19 @@
     <meta name="author" content="Shail Macwan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
 
+    <link href="styles/style.css" rel="stylesheet">
+
   </head>
   <body>
-    <p class="js-show-result">00 : 00 : 00</p>
-    <button class="js-start-button">Start</button>
-    <button class="js-reset-button">Reset</button>
+    <div class="main-part">
+      <p class="js-show-result times">00 : 00 : 00</p>
+      <div class="css-buttons-start">
+        <button class="js-start-button">Start</button>
+      </div>
+      <div class="css-buttons-reset">
+        <button class="js-reset-button">Reset</button>
+      </div>
+    </div>
   </body>
-  <script>
-    let sec=0;
-    let min=0;
-    let hr=0;
-    let buttonStartElement = document.querySelector('.js-start-button');
-    let buttonResetElement = document.querySelector('.js-reset-button');
-    let result = document.querySelector('.js-show-result');
-    let button = false;
-    let intervalId;
-    
-    buttonStartElement.addEventListener('click', function(){
-      if(!button){
-        intervalId = setInterval(function(){
-          stopWatch();
-        },1000);
-        button = true;
-        buttonStartElement.innerHTML = 'Stop';
-      } else if(button){
-        buttonStartElement.innerHTML = 'Start';
-        clearInterval(intervalId);
-        button = false;
-      }
-    })
-
-    buttonResetElement.addEventListener('click', function(){
-      sec = 0;
-      min = 0;
-      hr = 0;
-      result.innerHTML = `${String(hr).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')}`;
-    })
-    
-    function stopWatch(){
-      sec++;
-      //console.log(sec);
-      while(sec>=60){
-        min++;
-        sec = sec - 60;
-      } 
-      //console.log(min);
-      while(min>=60){
-        hr++;
-        min = min - 60;
-      }
-      //console.log(hr);
-      result.innerHTML = `${String(hr).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')}`;
-    }
-
-    /*
-    function onlySec(){
-      result.innerHTML = `${String(sec).padStart(2, '0')}`;
-    }
-    function minSec(){
-      result.innerHTML = `${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')}`;
-    }
-    function allTime(){
-      result.innerHTML = `${String(hr).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')}`;
-    }
-    */
-
-    
-  </script>
+  <script src="scripts/script.js"></script>
 </html>
