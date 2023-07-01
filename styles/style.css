@@ -1,11 +1,13 @@
 body{
   background-color : teal;
-  
   color : whitesmoke;
-  font-size : 45px;
-  font-family : -apple-system, BlinkMacSystemFont, sans-serif;
-  
+  font-family : -apple-system, BlinkMacSystemFont, sans-serif; 
 }
+
+noscript{
+  color : red;
+}
+
 .main-part{
   display : flexbox;
   align-items: center;
